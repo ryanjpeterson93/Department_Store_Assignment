@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_action :set_department, only: [:show, :update, :edit, :destroy]
+  before_action :set_department, only: [:show, :update, :edit]
   
   def index
     @departments = Department.all
@@ -11,11 +11,11 @@ class DepartmentsController < ApplicationController
 
   def new
     @department = Department.new
-    render partial: 'form'
+    
   end
 
   def edit
-    render partial: 'form'
+    
   end
 
   def create
@@ -34,6 +34,11 @@ class DepartmentsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    Department.find(params[:id]).destroy
+    redirect_to departments_path
   end
 
 
