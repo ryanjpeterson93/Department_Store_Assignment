@@ -4,6 +4,8 @@
   <% @departments.each do |department| %>
     <h2><%= department.name %></h2>
     <ul>
-      <%= link_to 'View', department_path(department) %>
+      <li><%= link_to "view #{department.name}", department_items_path(department) %></li>
+      <li><%= link_to "edit #{department.name}", edit_department_path(department) %></li>
+      <li><%= link_to "delete #{department.name}", department, method: :delete %></li>
     </ul>
   <% end %>

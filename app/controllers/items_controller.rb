@@ -1,18 +1,21 @@
 class ItemsController < ApplicationController
   before_action :set_department
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @items = @department.items
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
     @item = @department.items.new
+    render partial: 'form'
   end
 
   def edit
+    @item = Item.find(params[:id])
+    render partial: 'form'
   end
 
   def create
@@ -27,7 +30,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @department.update(item_params)
+    @item = Item.find(params[:id])
+    if (@department.update(item_params))
       redirect_to [@department, @item]
     else
       render :edit
@@ -35,6 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
     @item.destroy
     redirect_to department_items_path(@department)
   end
@@ -42,10 +47,6 @@ class ItemsController < ApplicationController
   private 
     def set_department
       @department = Department.find(params[:department_id])
-    end
-
-    def set_item
-      @item = Item.find(params[:id])
     end
 
     def item_params

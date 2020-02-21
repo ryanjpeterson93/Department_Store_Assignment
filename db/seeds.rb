@@ -17,6 +17,8 @@ require 'faker'
   name = Faker::Commerce.department
   department = Department.create(name: name)
   3.times do |j|
-    department.items.create(name: name)
+    item = department.items.create(
+      name: Faker::Commerce.product_name  
+    )
   end
 end
