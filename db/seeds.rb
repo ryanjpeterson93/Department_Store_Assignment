@@ -8,7 +8,15 @@
 
 
 require 'faker'
-5.times do
+# 5.times do
+#   name = Faker::Commerce.department
+#   department = Department.create(name: name)
+# end
+
+10.times do |i|
   name = Faker::Commerce.department
   department = Department.create(name: name)
+  3.times do |j|
+    department.items.create(name: name)
+  end
 end
