@@ -1,24 +1,26 @@
-# README
+# Ruby Lunch Lady
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Assignment given as part of the DevPoint Labs Full Stack Web Development Course
 
-Things you may want to cover:
+#### Week 2
 
-* Ruby version
 
-* System dependencies
+BASIC OBJECTIVES:
 
-* Configuration
+1. Create a department model and an item model. (A department "has many" items for sale).
 
-* Database creation
+2. Using nested routes allow departments to have items.
 
-* Database initialization
+3. Create controllers for your two models that account for all CRUD actions.
 
-* How to run the test suite
+4. Create views for your models.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+BONUS OBJECTIVES:
+
+1. Add a comment model. (An item "has many" comments). Rework your routes accordingly.
+
+2. Create a comment controller. Display comments when viewing an item.
+
+3. Add custom styles in your *.scss file
